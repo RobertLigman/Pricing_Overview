@@ -92,6 +92,7 @@ input:checked+.slider:before {
 }
 
 .card {
+    cursor: pointer;
     padding: 40px;
     border-radius: 5px;
     border: 1px solid black;

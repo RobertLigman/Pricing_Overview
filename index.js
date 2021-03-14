@@ -5,7 +5,9 @@ const cards = [...document.querySelectorAll(".card")];
 
 const toggleActiveCard = (e) => {
   cards.forEach((item) => item.classList.remove("card__active"));
-  e.target.classList.add("card__active");
+  if (e.target.classList.contains("card"))
+    e.target.classList.add("card__active");
+  else e.target.parentNode.classList.add("card__active");
 };
 cards.forEach((item) => {
   item.addEventListener("click", (e) => toggleActiveCard(e));
