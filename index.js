@@ -2,9 +2,11 @@ const switchBall = document.querySelector("#switchBall");
 const annually = document.querySelector(".annually");
 const monthly = document.querySelector(".monthly");
 const cards = [...document.querySelectorAll(".card")];
-
-const toggleActiveCard = (e) => {
+const rmActiveCards = () => {
   cards.forEach((item) => item.classList.remove("card__active"));
+};
+const toggleActiveCard = (e) => {
+  rmActiveCards();
   if (e.target.classList.contains("card"))
     e.target.classList.add("card__active");
   else e.target.parentNode.classList.add("card__active");
@@ -16,7 +18,7 @@ cards.forEach((item) => {
 let state = false;
 
 const displayCard = () => {
-  if (state) {
+  if (!state) {
     // annually.style.display = "none";
     // monthly.style.opacity = "0";
     // monthly.style.display = "block";
@@ -31,6 +33,9 @@ const displayCard = () => {
     // monthly.style.display = "none";
     // monthly.style.opacity = "0";
   }
+  rmActiveCards();
+  cards[1].classList.add("card__active");
+  cards[4].classList.add("card__active");
 };
 
 const toggleState = () => {
